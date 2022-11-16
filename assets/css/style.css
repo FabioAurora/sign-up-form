@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: CustomFont;
+    src: url(../font.otf);
+}
+
+:root {
+    --logo-text-vlr: rgb(240, 240, 240);
+    --dark-transparent-bg: rgba(0, 0, 0, .6);
+
+}
+

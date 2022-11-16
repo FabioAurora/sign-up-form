@@ -9,13 +9,59 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+    
     <section class="content">
-        <article class="image">
+        <section class="hero_image-section">
             <div class="logo">
-
+                <img src="assets/images/odin-lined.png" alt="the odin project logo">
+                <h1>Odin Resort</h1>
             </div>
-            <p>Photo by <span class="underline">Thor Schroeder</span> on <span class="underline">unsplash</span></p>
-        </article>
+            <p class="credit">Photo by <span class="underline">Thor Schroeder</span> on <span class="underline">unsplash</span></p>
+        </section>
+
+        <section class="sign_up-section">
+            <div class="dummy-text">
+                <p>This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams.</p>
+                <p>Sign up now to get started.</p>
+                <p class="remote_text">You know you want to.</p>
+            </div>
+
+            <form class="form" action="">
+                <h2>Let's do this!</h2>
+
+                <section class="form_controls-container">
+                    <section class="form_controls-left">
+                        <div class="form_controls">
+                            <label for="first_name">first name</label>
+                            <input type="text" id="first_name" name="first_name">
+                        </div>
+                        <div class="form_controls">
+                            <label for="email">email</label>
+                            <input type="email" name="email" id="email">
+                        </div>
+                        <div class="form_controls">
+                            <label for="password">password</label>
+                            <input type="password" name="password" id="password">
+                        </div>
+                    </section>
+                    <section class="form_controls-right">
+                        <div class="form_controls">
+                            <label for="last_name">last name</label>
+                            <input type="text" id="last_name" name="last_name">
+                        </div>
+                        <div class="form_controls">
+                            <label for="phone">phone number</label>
+                            <input type="tel" name="phone" id="phone">
+                        </div>
+                        <div class="form_controls">
+                            <label for="confirm_password">confirm password</label>
+                            <input type="password" name="confirm_password" id="confirm_password">
+                        </div>
+                    </section>
+                </section>
+                <button class="submit_btn" type="submit">Create Account</button>
+            </form>
+        </section>
     </section>
     <script src="assets/js/script.js"></script>
 </body>
