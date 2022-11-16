@@ -10,8 +10,63 @@
 }
 
 :root {
-    --logo-text-vlr: rgb(240, 240, 240);
+    --light-text-clr: rgb(240, 240, 240);
     --dark-transparent-bg: rgba(0, 0, 0, .6);
 
+    --logo-font: CustomFont;
+    --container-pad: 1.5rem clamp(1rem, 5%, 3rem);
+    --hero-title-size: clamp(1.5rem, 5vw, 3rem);
 }
 
+/* Default for body */
+
+body {
+    line-height: 1.5;
+    min-height: 100vh;
+}
+
+img {
+    width: 100%;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero_image-section {
+    background: url('../images/thor-schroeder-T91WhuBxDec-unsplash.jpg') no-repeat;
+    background-size: cover;
+    height: 40vh;
+    width: min(80ch, 100%);
+}
+
+.logo {
+    background-color: var(--dark-transparent-bg);
+    color: var(--light-text-clr);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+.logo img {
+    width: min(80px, 25%, 10vw);
+}
+.logo h1 {
+    font-size: var(--hero-title-size);
+    font-family: var(--logo-font);
+}
+
+@media (min-width: 43rem) {
+    .content {
+        flex-direction: row;
+        justify-content: center;
+        border: 1px solid;
+    }
+
+    .hero_image-section {
+        height: 100vh;
+    }
+}
