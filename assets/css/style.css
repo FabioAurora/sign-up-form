@@ -13,10 +13,11 @@
     --light-text-clr: rgb(240, 240, 240);
     --dark-transparent-bg: rgba(0, 0, 0, .5);
 
+    --body-font: Verdana, Geneva, Tahoma, sans-serif;
     --logo-font: CustomFont;
     --container-pad: 1.5rem clamp(1rem, 5%, 3rem);
     --hero-title-size: clamp(1.75rem, 4vw + 1rem, 3rem);
-    --credit-font-size: clamp(.7rem, 2vw, 1rem)
+    --credit-font-size: clamp(.6rem, 1vw, 1rem)
 }
 
 /* Default for body */
@@ -24,6 +25,8 @@
 body {
     line-height: 1.5;
     min-height: 100vh;
+    font-size: clamp(1rem, 1vw, 1.1rem);
+    font-family: var(--body-font);
 }
 
 img {
@@ -73,6 +76,20 @@ img {
     color: var(--light-text-clr);
     font-size: var(--credit-font-size);
     padding: .5rem;
+    word-wrap: break-word;
+}
+
+/* sign-up form section */
+.sign_up-section {
+    padding: 1.5rem clamp(1rem, 5%, 3rem);
+    max-width: 700px;
+}
+
+.dummy-text {
+    font-weight: bold;
+}
+.dummy-text > p + p {
+    margin-bottom: 1rem;
 }
 
 @media (min-width: 43rem) {
