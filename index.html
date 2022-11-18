@@ -14,53 +14,52 @@
         <section class="hero_image-section">
             <div class="logo">
                 <img src="assets/images/odin-lined.png" alt="the odin project logo">
-                <h1>Odin Resort</h1>
+                <h1>Odin custom build</h1>
             </div>
-            <p class="credit">Photo by <span class="underline">Thor Schroeder</span> on <span class="underline">unsplash</span></p>
+            <p class="credit">Photo by <a href="https://unsplash.com/@christianw" target="_blank">Christian Wiediger</a> on <a href="https://unsplash.com/" target="_blank">unsplash</a></p>
         </section>
 
         <section class="sign_up-section">
-            <div class="dummy-text">
+            <div class="dummy_text">
                 <p>This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams.</p>
                 <p>Sign up now to get started.</p>
-                <p class="remote_text">You know you want to.</p>
+                <p class="remote_text">You <i>know</i> you want to.</p>
             </div>
 
-            <form class="form" action="">
-                <h2>Let's do this!</h2>
+           <form action="#" class="form">
+            <h2>Let's do this</h2>
 
-                <section class="form_controls-container">
-                    <section class="form_controls-left">
-                        <div class="form_controls">
-                            <label for="first_name">first name</label>
-                            <input type="text" id="first_name" name="first_name">
-                        </div>
-                        <div class="form_controls">
-                            <label for="email">email</label>
-                            <input type="email" name="email" id="email">
-                        </div>
-                        <div class="form_controls">
-                            <label for="password">password</label>
-                            <input type="password" name="password" id="password">
-                        </div>
-                    </section>
-                    <section class="form_controls-right">
-                        <div class="form_controls">
-                            <label for="last_name">last name</label>
-                            <input type="text" id="last_name" name="last_name">
-                        </div>
-                        <div class="form_controls">
-                            <label for="phone">phone number</label>
-                            <input type="tel" name="phone" id="phone">
-                        </div>
-                        <div class="form_controls">
-                            <label for="confirm_password">confirm password</label>
-                            <input type="password" name="confirm_password" id="confirm_password">
-                        </div>
-                    </section>
-                </section>
-                <button class="submit_btn" type="submit">Create Account</button>
-            </form>
+            <fieldset>
+                <div class="inputs">
+                    <label for="first-name">first name</label>
+                    <input type="text" name="first-name" id="first-name">
+                </div>
+                <div class="inputs">
+                    <label for="last-name">last name</label>
+                    <input type="text" name="last-name" id="last-name">
+                </div>
+                <div class="inputs">
+                    <label for="email">email</label>
+                    <input type="email" name="email" id="email">
+                </div>
+                <div class="inputs">
+                    <label for="tel">phone number</label>
+                    <input type="tel" name="tel" id="tel">
+                </div>
+                <div class="inputs">
+                    <label for="password">password</label>
+                    <input type="password" name="password" id="password">
+                </div>
+                <div class="inputs">
+                    <label for="confirm-password">confirm password</label>
+                    <input type="password" name="confirm-password" id="confirm-password">
+                </div>
+            </fieldset>
+
+            <button class="submit_btn" type="submit">Create Account</button>
+           </form>
+
+           <p class="log_in">Already have an account? <a href="#">Log in</a></p>
         </section>
     </section>
     <script src="assets/js/script.js"></script>
