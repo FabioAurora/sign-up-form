@@ -2,22 +2,28 @@
 
 const defaultOption = document.querySelector('.default_option');
 const toggleThemeOptions = document.querySelector('.select_ul');
-const iconRotate = document.querySelector('.icon');
+const selectIconRotate = document.querySelector('.icon');
 const selectOption = document.querySelectorAll('.option input');
 const heroImage = document.querySelector('.hero_image-section');
-const confirmPassword = document.querySelector('#confirm-password');
 const passwordInfo = document.querySelector('.password_info');
 const root = document.documentElement;
 root.className = 'dark-red';
 
+const confirmPassword = document.querySelector('#confirm-password');
 const password = document.querySelector("#password");
 const letter = document.querySelector("#letter");
 const capital = document.querySelector("#capital");
 const number = document.querySelector("#number");
 const length = document.querySelector("#length");
 
-const submit = document.querySelector('.submit_btn');
+const submitBTN = document.querySelector('.submit_btn');
+const modalBTN = document.querySelector('.modal_BTN');
+const modal = document.querySelector('.modal');
 
+modalBTN.addEventListener('click', () => {
+    modal.style.display = 'none';
+    window.location.reload();
+})
 
 const togglePassword = document.querySelector('#togglePassword');
 const toggleConfirmPassword = document.querySelector('#toggleConfirmPassword');
@@ -25,6 +31,7 @@ const toggleConfirmPassword = document.querySelector('#toggleConfirmPassword');
 togglePassword.addEventListener('click', setPasswordVisibility);
 toggleConfirmPassword.addEventListener('click', setConfirmPassVisibility);
 
+//**** Toggle password visibility and changing the icon **** */
 function setPasswordVisibility() {
     const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
     password.setAttribute('type', type);
@@ -36,26 +43,26 @@ function setConfirmPassVisibility() {
     confirmPassword.setAttribute('type', type);
     this.classList.toggle('bi-eye');
 }
+/* ************************************************************************* */
 
 
-
-// Validate the 2 passwords when user leave the confirm password field
+// **** Validate the 2 passwords when user leave the confirm password field ****
 function validatePassword() {
     const error = document.querySelector(".password_error");
     if(password.value !== confirmPassword.value){
         error.style.display = 'flex'
-        submit.disabled = true;
-    }else submit.disabled = false;
+        submitBTN.disabled = true;
+    }else submitBTN.disabled = false;
   }
 confirmPassword.onblur = validatePassword;
 
   confirmPassword.onfocus = function() {
     const error = document.querySelector(".password_error");
     error.style.display = 'none';
-    confirmPassword.value = '';
 }
+/* ****************************************************************************** */
 
-// When the user starts to type something inside the password field
+// **** validating password requirements while the user is typing ****
 password.onkeyup = () => {
     let lowerCaseLetters = /[a-z]/;
     let upperCaseLetters = /[A-Z]/;
@@ -96,12 +103,13 @@ password.onkeyup = () => {
         length.classList.add('invalid');
     }
 }
+/* ***************************************************************************** */
 
-// open drop menu
+// **** opening the select theme options and selecting the themes ****
 defaultOption.addEventListener('click', () => {
     toggleThemeOptions.classList.toggle('active');
     defaultOption.classList.toggle('bg_color');
-    iconRotate.classList.toggle('icon_rotate');
+    selectIconRotate.classList.toggle('icon_rotate');
 });
 
 //Changing root selected theme
@@ -111,25 +119,42 @@ function setTheme(ele) {
 
 selectOption.forEach(input => input.addEventListener('click', () =>{
     toggleThemeOptions.classList.toggle('active');
-    iconRotate.classList.toggle('icon_rotate');
+    selectIconRotate.classList.toggle('icon_rotate');
     setTheme(input.id);
 }));
+/* ******************************************************************************** */
 
-submit.addEventListener('click', () => {
-        const error = document.querySelector(".password_error");
-        if(password.value !== confirmPassword.value){
-            error.style.display = 'flex'
-        }
-})
-
-
-//I'm using "click" but it works with any event
+// **** closing the theme selection if the user click outside the selection
+//without selecting a theme. ****
+// **** This works with any event ****
 document.addEventListener('click', function(event) {
     const isClickInside = defaultOption.contains(event.target);
     if (isClickInside) {
         return
     } else {
       toggleThemeOptions.classList.remove('active');
-      iconRotate.classList.remove('icon_rotate');
+      selectIconRotate.classList.remove('icon_rotate');
     }
   });
+
+// opening modal after submitting a form after validation
+  (function() {
+    'use strict';
+    window.addEventListener('load', function() {
+// Fetch all the forms we want to apply custom Bootstrap validation styles to
+        let forms = document.getElementsByClassName('needs_validation');
+// Loop over them and prevent submission
+        let validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    return false;
+                } else {
+                    modal.style.display = 'flex'
+                }
+            }, false);
+        });
+    }, false);
+})();
+
+  /* END, Follow me on instagram @fabioauroradev, to follow my learning journey */
