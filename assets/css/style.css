@@ -13,7 +13,7 @@
 
 :root.dark-red {
     /* colors */
-    --primary-dark-bg: rgb(25, 0, 3);
+    --primary-bg: rgb(25, 0, 3);
     --light-text-clr: rgb(220, 240, 210);
     --light-text-second-clr: rgb(131, 132, 131);
     --logo-dark-transparent-bg: rgba(0, 0, 0, .5);
@@ -40,7 +40,7 @@
 
 :root.blue {
     /* colors */
-    --primary-dark-bg: rgb(3, 0, 25);
+    --primary-bg: rgb(3, 0, 25);
     --light-text-clr: rgb(220, 240, 210);
     --light-text-second-clr: rgb(131, 132, 131);
     --logo-dark-transparent-bg: rgba(0, 0, 0, .5);
@@ -65,6 +65,33 @@
 
 }
 
+:root.light {
+    /* colors */
+    --primary-bg: #E3E3ED;
+    --light-text-clr: #010617;
+    --light-text-second-clr: rgb(131, 132, 131);
+    --logo-dark-transparent-bg: rgba(0, 0, 0, .5);
+    --form-bg: rgb(193, 226, 233);
+    --selected-theme-bg: rgb(25, 35, 107);
+    --form-primary-clr: #011836;
+    --form-input-bg: rgb(135, 182, 193);
+
+    /* fonts/sizes */
+    --body-font:  'Roboto', sans-serif;
+    --logo-font: CustomFont;
+    --input-font:'Source Code Pro', monospace;
+    --font-size: clamp(1rem, 1vw, 1.5rem);
+    --logo-font-size: clamp(1.75rem, 3vw, 3rem);
+    --credit-font-size: clamp(.6rem, .5vw, 1rem);
+
+    /* section padding/margin */
+    --section-padding: 3rem clamp(1rem, 5%, 5rem);
+
+    /* images */
+    --hero-image: url('../images/pc-g8778666b6_1920.jpg') no-repeat;
+
+}
+
 /* Default for body */
 
 body {
@@ -72,7 +99,7 @@ body {
     min-height: 100vh;
     font-size: var(--font-size);
     font-family: var(--body-font);
-    background-color: var(--primary-dark-bg);
+    background-color: var(--primary-bg);
     color: var(--light-text-clr);
 }
 a {
@@ -209,25 +236,6 @@ li.option:focus {
     position: relative;
 }
 
-.modal {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    background-color: rgb(0, 0, 0);
-    width: 100%;
-    height: 100%;
-    z-index: 4;
-}
-.modal h1 {
-    font-size: var(--logo-font-size);
-}
-.modal_para {
-    margin: 2rem 0;
-    font-size: inherit;
-}
-
 .dummy_text {
     font-weight: bold;
 }
@@ -307,6 +315,7 @@ input:-webkit-autofill:active {
     text-transform: initial;
     color: var(--light-text-second-clr);
     width: 300px;
+  
 }
 
 
@@ -349,6 +358,10 @@ input:-webkit-autofill:active {
     cursor: pointer;
 }
 
+.mobile-eye {
+    bottom: 10px;
+}
+
 .valid {
     color: var(--form-primary-clr);
 }
@@ -367,7 +380,7 @@ input:-webkit-autofill:active {
     border-radius: 8px;
     font-family: inherit;
     font-weight: bold;
-    color: var(--primary-dark-bg);
+    color: var(--primary-bg);
     font-size: 1.2rem;
     cursor: pointer;
 }
@@ -419,5 +432,9 @@ input:-webkit-autofill:active {
     .inputs {
         width: 270px;
         min-width: 150px;
+    }
+
+    .mobile-eye {
+        bottom: 55px;
     }
 }

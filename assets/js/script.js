@@ -20,9 +20,12 @@ const submitBTN = document.querySelector('.submit_btn');
 const modalBTN = document.querySelector('.modal_BTN');
 const modal = document.querySelector('.modal');
 
-modalBTN.addEventListener('click', () => {
-    modal.style.display = 'none';
-    window.location.reload();
+
+submitBTN.addEventListener('click', () => {
+    if(password.value === confirmPassword.value && password.value !== ''){
+        alert(`Thank you for reviewing my project.
+        Follow me on instagram @fabioauroradev, if you need motivation`);
+    }
 })
 
 const togglePassword = document.querySelector('#togglePassword');
@@ -136,25 +139,5 @@ document.addEventListener('click', function(event) {
       selectIconRotate.classList.remove('icon_rotate');
     }
   });
-
-// opening modal after submitting a form after validation
-  (function() {
-    'use strict';
-    window.addEventListener('load', function() {
-// Fetch all the forms we want to apply custom Bootstrap validation styles to
-        let forms = document.getElementsByClassName('needs_validation');
-// Loop over them and prevent submission
-        let validation = Array.prototype.filter.call(forms, function(form) {
-            form.addEventListener('submit', function(event) {
-                if (form.checkValidity() === false) {
-                    event.preventDefault();
-                    return false;
-                } else {
-                    modal.style.display = 'flex'
-                }
-            }, false);
-        });
-    }, false);
-})();
 
   /* END, Follow me on instagram @fabioauroradev, to follow my learning journey */
