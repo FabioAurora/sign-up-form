@@ -11,11 +11,16 @@
     src: url(../font.otf);
 }
 
-:root {
+:root.dark-red {
     /* colors */
-    --primary-dark-bg: #190003;
+    --primary-dark-bg: rgb(25, 0, 3);
     --light-text-clr: rgb(220, 240, 210);
+    --light-text-second-clr: rgb(131, 132, 131);
     --logo-dark-transparent-bg: rgba(0, 0, 0, .5);
+    --form-bg: rgba(203, 0, 26, .2);
+    --selected-theme-bg: rgb(107, 25, 35);
+    --form-primary-clr: rgb(253, 169, 93);
+    --form-input-bg: rgba(212, 83, 100, 0.3);
 
     /* fonts/sizes */
     --body-font:  'Roboto', sans-serif;
@@ -27,6 +32,36 @@
 
     /* section padding/margin */
     --section-padding: 3rem clamp(1rem, 5%, 5rem);
+
+    /* images */
+    --hero-image: url('../images/christian-wiediger-XfSk_BMLj0A-unsplash.jpg') no-repeat;
+
+}
+
+:root.blue {
+    /* colors */
+    --primary-dark-bg: rgb(3, 0, 25);
+    --light-text-clr: rgb(220, 240, 210);
+    --light-text-second-clr: rgb(131, 132, 131);
+    --logo-dark-transparent-bg: rgba(0, 0, 0, .5);
+    --form-bg: rgba(26, 0, 203, .2);
+    --selected-theme-bg: rgb(25, 35, 107);
+    --form-primary-clr: rgb(93, 169, 253);
+    --form-input-bg:rgba(100, 83, 212, 0.3);
+
+    /* fonts/sizes */
+    --body-font:  'Roboto', sans-serif;
+    --logo-font: CustomFont;
+    --input-font:'Source Code Pro', monospace;
+    --font-size: clamp(1rem, 1vw, 1.5rem);
+    --logo-font-size: clamp(1.75rem, 3vw, 3rem);
+    --credit-font-size: clamp(.6rem, .5vw, 1rem);
+
+    /* section padding/margin */
+    --section-padding: 3rem clamp(1rem, 5%, 5rem);
+
+    /* images */
+    --hero-image: url('../images/christian-wiediger-KV2vFOYItcY-unsplash.jpg') no-repeat;
 
 }
 
@@ -45,17 +80,88 @@ a {
 }
 
 h2 {
-    color: #FDA95D;
+    color: var(--form-primary-clr);
+}
+li {
+    list-style: none;
+}
+
+/* select theme */
+
+.select_wrap {
+    position:absolute;
+    z-index: 2;
+    top: 20px;
+    right: 10vw;
+}
+
+.select_wrap .select_ul {
+    margin-top: .5rem;
+    display: none;
+}
+
+.select_ul.active {
+    display: block;
+    transition: .5s ease-in;
+}
+
+.default_option.bg_color {
+    background-color: var(--selected-theme-bg);
+}
+
+
+.option{
+    display: flex;
+    align-items: center;
+    margin-bottom: .5rem;
+    width: 180px;
+    height: 45px;
+    padding: 0 1rem;
+    cursor: pointer;
+    transition: .5s ease;
+    background-color: var(--form-bg);
+    font-size: 1rem;
+    justify-content: space-between;
+}
+.option label {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.icon {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+    font-size: 14px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: var(--form-input-bg);
+    transition: .5s ease;
+}
+
+.icon.icon_rotate {
+    transform: rotate(180deg);
+}
+
+
+li.option:hover,
+li.option:focus {
+    background-color: var(--form-input-bg);
 }
 
 .content {
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 /* image section */
 .hero_image-section {
-    background: url('../images/christian-wiediger-XfSk_BMLj0A-unsplash.jpg') no-repeat;
+    background: var(--hero-image);
     background-size: cover;
     background-position: center;
     height: 40vh;
@@ -123,7 +229,7 @@ h2 {
     position: absolute;
     top: -1px;
     right: 0;
-    background-color: rgba(203, 0, 26, .2);
+    background-color: var(--form-bg);
     padding-left: 5rem;
     z-index: -1;
 }
@@ -135,41 +241,108 @@ fieldset {
 .inputs {
     display: flex;
     flex-direction: column;
-    /* padding: 1.5rem clamp(1rem, 5%, 3rem); */
     padding: .5rem 0;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: .8rem;
+    position: relative;
 }
 .inputs input {
     all: initial;
     padding: .4rem;
-    background-color: rgba(212, 83, 100, 0.3);
+    background-color: var(--form-input-bg);
     border: none;
     border-radius: 5px;
     padding-left: .5rem;
     color: var(--light-text-clr);
     font-family: var(--input-font);
 }
+#first-name,
+#last-name {
+    text-transform: capitalize;
+}
 .inputs input:focus {
-    outline: 2px solid #FDA95D;
+    outline: 2px solid var(--form-primary-clr);
 }
 
+.inputs input::placeholder {
+    color: var(--light-text-second-clr);
+}
+
+/* CSS hack to force custom style with input autofill */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   transition: all 5000s ease-in-out 0s;
 }
-.inputs input:autofill {
-    background-color: rgba(212, 83, 100, 0.3) !important;
+
+.password_message-container {
+    display: flex;
 }
+
+.password_info {
+    font-size: .6rem;
+    font-family: var(--body-font);
+    text-transform: initial;
+    color: var(--light-text-second-clr);
+    width: 300px;
+}
+
+
+.password_info-left p,
+.password_info-right p {
+    width: 240px;
+}
+
+.password_error {
+    display: none;
+    gap: .5rem;
+    margin-top: .5rem;
+}
+.password_error-message,
+.password_error-icon {
+    color: var(--form-primary-clr);
+}
+
+.password_error-message {
+    font-size: .7rem;
+}
+.password_error-icon {
+    font-size: .8rem;
+}
+
+
+#password-info p {
+    display: inline;
+}
+.password_info h3 {
+    color: var(--light-text-second-clr);
+}
+
+.closed_eye{
+    display: block;
+    position: absolute;
+    right: 10px;
+    bottom: 55px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.valid {
+    color: var(--form-primary-clr);
+}
+
+.invalid {
+    color: GRAY;
+  }
+
 
 .submit_btn {
     border: none;
     padding: .8rem 3rem;
-    margin-top: 2rem;
-    background-color: #FDA95D;
+    margin-top: 1rem;
+    background-color: var(--form-primary-clr);
     border-radius: 8px;
     font-family: inherit;
     font-weight: bold;
@@ -183,13 +356,12 @@ input:-webkit-autofill:active {
 }
 .log_in a {
     text-decoration: none;
-    color: #FDA95D;
+    color: var(--form-primary-clr);
 }
 
 @media (min-width: 62rem) {
     .content {
         flex-direction: row;
-        border: 1px solid;
     }
 
     .hero_image-section {
