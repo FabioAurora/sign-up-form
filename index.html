@@ -1,119 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign-up Form</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" defer></script>
-</head>
-<body>
-
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+      defer
+    ></script>
+  </head>
+  <body>
     <section class="content">
-
-            <div id="select-wrap" class="select_wrap">
-                <ul class="default_option">
-                    <li>
-                        <div class="option">
-                            <p class="text">Select Theme</p>
-                            <div class="icon">
-                                <ion-icon name="chevron-down-outline"></ion-icon>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-                <ul class="select_ul">
-                    <li class="option">
-                        <label for="dark-red">Dark Red</label>
-                        <input type="radio" name="select-theme" id="dark-red">
-                    </li>
-                    <li class="option">
-                        <label for="blue">Blue</label>
-                        <input type="radio" name="select-theme" id="blue">
-                    </li>
-                    <li class="option">
-                        <label for="light">Light</label>
-                        <input type="radio" name="select-theme" id="light">
-                    </li>
-                </ul>
+      <div id="select-wrap" class="select_wrap">
+        <ul class="default_option">
+          <li>
+            <div class="option">
+              <p class="text">Select Theme</p>
+              <div class="icon">
+                <ion-icon name="chevron-down-outline"></ion-icon>
+              </div>
             </div>
+          </li>
+        </ul>
+        <ul class="select_ul">
+          <li class="option">
+            <label for="dark-red">Dark Red</label>
+            <input type="radio" name="select-theme" id="dark-red" />
+          </li>
+          <li class="option">
+            <label for="blue">Blue</label>
+            <input type="radio" name="select-theme" id="blue" />
+          </li>
+          <li class="option">
+            <label for="light">Light</label>
+            <input type="radio" name="select-theme" id="light" />
+          </li>
+        </ul>
+      </div>
 
-        <section class="hero_image-section">
-            <div class="logo">
-                <img src="assets/images/odin-lined.png" alt="the odin project logo">
-                <h1>Odin custom build</h1>
+      <section class="hero_image-section">
+        <div class="logo">
+          <img src="assets/images/odin-lined.png" alt="the odin project logo" />
+          <h1>Odin custom build</h1>
+        </div>
+        <p class="credit">
+          Photo by
+          <a href="https://unsplash.com/@christianw" target="_blank"
+            >Christian Wiediger</a
+          >
+          on <a href="https://unsplash.com/" target="_blank">unsplash</a>
+        </p>
+      </section>
+
+      <section class="sign_up-section">
+        <div class="dummy_text">
+          <p>
+            This is not a real online service! You know you need something like
+            this in your life to help you realize your deepest dreams.
+          </p>
+          <p>Sign up now to get started.</p>
+          <p class="remote_text">You <i>know</i> you want to.</p>
+        </div>
+
+        <form
+          action="#"
+          class="form needs_validation"
+          onsubmit="return validatePassword()"
+        >
+          <h2>Let's do this</h2>
+
+          <fieldset>
+            <div class="inputs">
+              <label for="first-name">first name *</label>
+              <input
+                type="text"
+                name="first-name"
+                id="first-name"
+                placeholder="your name..."
+                required
+              />
             </div>
-            <p class="credit">Photo by <a href="https://unsplash.com/@christianw" target="_blank">Christian Wiediger</a> on <a href="https://unsplash.com/" target="_blank">unsplash</a></p>
-        </section>
-
-        <section class="sign_up-section">
-            <div class="dummy_text">
-                <p>This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams.</p>
-                <p>Sign up now to get started.</p>
-                <p class="remote_text">You <i>know</i> you want to.</p>
+            <div class="inputs">
+              <label for="last-name">last name</label>
+              <input
+                type="text"
+                name="last-name"
+                id="last-name"
+                placeholder="your surname..."
+              />
             </div>
-
-           <form action="#" class="form needs_validation" onsubmit="return validatePassword()">
-            <h2>Let's do this</h2>
-
-            <fieldset>
-                <div class="inputs">
-                    <label for="first-name">first name *</label>
-                    <input type="text" name="first-name" id="first-name" placeholder="your name..." required>
+            <div class="inputs">
+              <label for="email">email</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="example@email.com"
+              />
+            </div>
+            <div class="inputs">
+              <label for="tel">phone number</label>
+              <input type="tel" name="tel" id="tel" />
+            </div>
+            <div class="inputs">
+              <label for="password">password *</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                required
+              />
+              <i class="bi bi-eye-slash closed_eye" id="togglePassword"></i>
+              <div class="password_message-container">
+                <div id="password-info" class="password_info">
+                  <h3>Password must contain the following:</h3>
+                  <div class="password_info-left">
+                    <p id="letter" class="invalid"><b>lowercase</b> letter</p>
+                    <p id="capital" class="invalid"><b>UPPERCASE</b> letter,</p>
+                  </div>
+                  <div class="password_info-right">
+                    <p id="number" class="invalid"><b>number</b>,</p>
+                    <p id="length" class="invalid">
+                      Minimum <b>8 characters</b>
+                    </p>
+                  </div>
                 </div>
-                <div class="inputs">
-                    <label for="last-name">last name</label>
-                    <input type="text" name="last-name" id="last-name" placeholder="your surname...">
-                </div>
-                <div class="inputs">
-                    <label for="email">email</label>
-                    <input type="email" name="email" id="email" placeholder="example@email.com">
-                </div>
-                <div class="inputs">
-                    <label for="tel">phone number</label>
-                    <input type="tel" name="tel" id="tel">
-                </div>
-                <div class="inputs">
-                    <label for="password">password *</label>
-                    <input type="password" name="password" id="password" pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}' title='Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters' required>
-                    <i class="bi bi-eye-slash closed_eye" id="togglePassword"></i>
-                    <div class="password_message-container">
-                        <div id="password-info" class="password_info">
-                            <h3>Password must contain the following:</h3>
-                            <div class="password_info-left">
-                                <p id="letter" class="invalid"><b>lowercase</b> letter</p>
-                                <p id="capital" class="invalid"><b>UPPERCASE</b> letter,</p>
-                            </div>
-                            <div class="password_info-right">
-                                <p id="number" class="invalid"><b>number</b>,</p>
-                                <p id="length" class="invalid">Minimum <b>8 characters</b></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="inputs">
-                    <label for="confirm-password">confirm password *</label>
-                    <input type="password" name="confirm-password" id="confirm-password" required>
-                    <i class="bi bi-eye-slash closed_eye mobile-eye" id="toggleConfirmPassword"></i>
-                    <div class="password_error">
-                        <p class="password_error-message">Those password didn't match. Try again.</p>
-                    </div>
-                </div>
-            </fieldset>
+              </div>
+            </div>
+            <div class="inputs">
+              <label for="confirm-password">confirm password *</label>
+              <input
+                type="password"
+                name="confirm-password"
+                id="confirm-password"
+                required
+              />
+              <i
+                class="bi bi-eye-slash closed_eye mobile-eye"
+                id="toggleConfirmPassword"
+              ></i>
+              <div class="password_error">
+                <p class="password_error-message">
+                  Those password didn't match. Try again.
+                </p>
+              </div>
+            </div>
+          </fieldset>
 
-            
+          <button class="submit_btn" type="submit">Create Account</button>
+        </form>
 
-            <button class="submit_btn" type="submit">Create Account</button>
-           </form>
-
-           <p class="log_in">Already have an account? <a href="#">Log in</a></p>
-        </section>
-
+        <p class="log_in">Already have an account? <a href="#">Log in</a></p>
+      </section>
     </section>
 
     <script src="assets/js/script.js"></script>
-</body>
+  </body>
 </html>
